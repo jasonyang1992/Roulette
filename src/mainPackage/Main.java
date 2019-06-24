@@ -18,9 +18,10 @@ public class Main {
 
 		Scanner userInput = new Scanner(System.in);
 		
-		System.out.println("Menu");
+		System.out.println("--------Menu-------");
 		System.out.println("1 - Bet on a number");
 		System.out.println("2 - Bet on a color");
+		System.out.println("3 - Bet Even or Odd");
 		menuCounter = userInput.nextInt();
 		
 		switch (menuCounter) {
@@ -28,8 +29,13 @@ public class Main {
 		case 1:
 			BetNumber.Number();
 			break;
+// Color Bet			
 		case 2:
 			BetColor.Color();
+			break;
+// Odd | Even
+		case 3:
+			BetOddEven.OddEven();
 			break;
 		default:	
 			System.out.println("You enter an invalid entry");

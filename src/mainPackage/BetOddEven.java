@@ -1,15 +1,47 @@
 package mainPackage;
+import java.util.*;
 
 public class BetOddEven {
 
 	public static void OddEven() {
 		
 		int RoutletteNumber; // Random number holder
-		String RoutletteColor = ""; // Color holder
-		int RedNum[] = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36}; // Numbers that are red
-		int BlackNum[] = {2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35};  // Numbers that are black
-		int PlaceHolder; // just a place holder
-		int NumberBet = 0;
+		String ResultOddEven; // just a place holder
+		String BetOddEven;
 	
+		System.out.println("Bet Odd or Even");
+		
+		Scanner userInput = new Scanner(System.in);
+// Loop for user input and user error		
+		do {
+			BetOddEven = userInput.next() .toUpperCase();
+			
+			if (!BetOddEven.equals("ODD") && !BetOddEven.equals("EVEN")) {
+				System.out.println("Invalid Entry. Odd or Even");
+			}
+		} while (!BetOddEven.equals("ODD") && !BetOddEven.equals("EVEN"));
+		
+// Generate Random Number 		
+		RoutletteNumber = (int) Math.round(Math.random() * 36);
+		System.out.println(RoutletteNumber);
+		
+// Determine if it is odd or even		
+		if (RoutletteNumber % 2 == 0) {
+			ResultOddEven = "EVEN";
+			System.out.println("It is even");
+		}
+		else {
+			ResultOddEven ="ODD";
+			System.out.println("It is Odd");
+		}
+// Result		
+		if (ResultOddEven.equals(BetOddEven)) {
+			FinalResult.Winner();
+		}
+		else{
+			FinalResult.Loser();
+		}
+		
+		userInput.close();
 	}
 }
