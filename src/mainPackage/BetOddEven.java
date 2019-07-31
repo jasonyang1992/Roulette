@@ -5,37 +5,33 @@ public class BetOddEven {
 
 	public static void OddEven() {
 		
-		int RoutletteNumber; // Random number holder
-		String ResultOddEven; // just a place holder
-		String BetOddEven;
-	
 		System.out.println("Bet Odd or Even");
 		
 		Scanner userInput = new Scanner(System.in);
 // Loop for user input and user error		
 		do {
-			BetOddEven = userInput.next() .toUpperCase();
+			Main.BettingOddEven = userInput.next() .toUpperCase();
 			
-			if (!BetOddEven.equals("ODD") && !BetOddEven.equals("EVEN")) {
+			if (!Main.BettingOddEven.equals("ODD") && !Main.BettingOddEven.equals("EVEN")) {
 				System.out.println("Invalid Entry. Odd or Even");
 			}
-		} while (!BetOddEven.equals("ODD") && !BetOddEven.equals("EVEN"));
+		} while (!Main.BettingOddEven.equals("ODD") && !Main.BettingOddEven.equals("EVEN"));
 		
 // Generate Random Number 		
-		RoutletteNumber = (int) Math.round(Math.random() * 36);
-		System.out.println(RoutletteNumber);
+		Main.RoutletteNumber = (int) Math.round(Math.random() * 36);
+		System.out.println(Main.RoutletteNumber);
 		
 // Determine if it is odd or even		
-		if (RoutletteNumber % 2 == 0) {
-			ResultOddEven = "EVEN";
+		if (Main.RoutletteNumber % 2 == 0) {
+			Main.ResultOddEven = "EVEN";
 			System.out.println("It is even");
 		}
 		else {
-			ResultOddEven ="ODD";
+			Main.ResultOddEven ="ODD";
 			System.out.println("It is Odd");
 		}
 // Result		
-		if (ResultOddEven.equals(BetOddEven)) {
+		if (Main.ResultOddEven.equals(Main.BettingOddEven)) {
 			FinalResult.Winner();
 		}
 		else{

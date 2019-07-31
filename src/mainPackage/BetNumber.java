@@ -5,9 +5,6 @@ public class BetNumber {
 
 	public static void Number(){
 		
-		int RoutletteNumber; // Random number holder
-		int NumberBet = -1;
-		
 		Scanner userInput = new Scanner(System.in);
 		
 		System.out.println("What number do you want to bet");
@@ -15,9 +12,9 @@ public class BetNumber {
 // loop for user error
 		do {
 			try {
-				NumberBet = userInput.nextInt();
+				Main.NumberBet = userInput.nextInt();
 				
-				if (NumberBet < 0 || NumberBet > 36) {
+				if (Main.NumberBet < 0 || Main.NumberBet > 36) {
 					System.out.println("Invaid number, please try again!");
 				}
 			}
@@ -25,22 +22,21 @@ public class BetNumber {
 				System.out.println("Invaid number, please try again!");
 				userInput.next();
 			}
-		} while (NumberBet < 0 || NumberBet > 36);
+		} while (Main.NumberBet < 0 || Main.NumberBet > 36);
 		
 // Generate Random Number 		
-		RoutletteNumber = (int) Math.round(Math.random() * 36);
+		Main.RoutletteNumber = (int) Math.round(Math.random() * 36);
 		
 // Print The Random Number
-		System.out.println("The number is " +RoutletteNumber);
+		System.out.println("The number is " +Main.RoutletteNumber);
 		
 // End Result		
-		if (RoutletteNumber == NumberBet) {
+		if (Main.RoutletteNumber == Main.NumberBet) {
 			FinalResult.Winner();
 		}
 		else {
 			FinalResult.Loser();
 		}
-		
 		userInput.close();
 	}
 }

@@ -10,5 +10,8 @@ public class FinalResult {
 	public static void Loser() {
 		System.out.println("You lose :(");
 	}
-	
+// Bank Statement
+	public static void Bank() {
+		System.out.println("Current bank dollars is " +Main.Bank);
+	}
 }
