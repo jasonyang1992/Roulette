@@ -1,16 +1,16 @@
 package mainPackage;
-import java.util.*;
 
 public class BetOddEven {
 
 	public static void OddEven() {
 		
+		FinalResult.PlaceBet();
+		
 		System.out.println("Bet Odd or Even");
 		
-		Scanner userInput = new Scanner(System.in);
 // Loop for user input and user error		
 		do {
-			Main.BettingOddEven = userInput.next() .toUpperCase();
+			Main.BettingOddEven = Main.userInput.next() .toUpperCase();
 			
 			if (!Main.BettingOddEven.equals("ODD") && !Main.BettingOddEven.equals("EVEN")) {
 				System.out.println("Invalid Entry. Odd or Even");
@@ -32,12 +32,13 @@ public class BetOddEven {
 		}
 // Result		
 		if (Main.ResultOddEven.equals(Main.BettingOddEven)) {
+			Main.Bank = Main.Bank + (Main.CurrentBet);
 			FinalResult.Winner();
 		}
 		else{
+			Main.Bank = Main.Bank - (Main.CurrentBet);
 			FinalResult.Loser();
 		}
 		
-		userInput.close();
 	}
 }

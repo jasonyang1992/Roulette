@@ -13,6 +13,9 @@ public class Main {
 	public static int NumberBet = -1; // for BetNumber
 	public static String ResultOddEven; // just a place holder for BetOddEven
 	public static String BettingOddEven; // for BetOddEven
+	
+	//Global Scanner
+	public static final Scanner userInput = new Scanner(System.in);
 
 	//Betting Counter
 	public static int Bank = 10000;
@@ -20,18 +23,15 @@ public class Main {
 	
 	public static void main(String args[]) {
 	
-		int menuCounter;
+		int menuCounter = 0;
+		int exitCounter = 0;
 		
-		System.out.println("Welcome to Roulette");
-
-		Scanner userInput = new Scanner(System.in);
-		
-		System.out.println("--------Menu-------");
-		System.out.println("1 - Bet on a number");
-		System.out.println("2 - Bet on a color");
-		System.out.println("3 - Bet Even or Odd");
-		System.out.println("4 - Check Bank Statement");
-		menuCounter = userInput.nextInt();
+	do {	
+		FinalResult.Menu();
+		try {
+			menuCounter = userInput.nextInt();
+		}
+		catch (Exception e) {}
 		
 		switch (menuCounter) {
 // Number Bet
@@ -52,9 +52,11 @@ public class Main {
 		default:	
 			System.out.println("You enter an invalid entry");
 			System.out.println("Restart the program!");
-			break;
+			exitCounter = 1;
+			break;	
 		}
-		
-		userInput.close();
+	} while (exitCounter == 0);	
+	
+	userInput.close();	
 	}
 }

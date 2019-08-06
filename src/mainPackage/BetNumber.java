@@ -1,18 +1,17 @@
 package mainPackage;
-import java.util.*;
 
 public class BetNumber {
 
 	public static void Number(){
 		
-		Scanner userInput = new Scanner(System.in);
+		FinalResult.PlaceBet();
 		
 		System.out.println("What number do you want to bet");
 		
 // loop for user error
 		do {
 			try {
-				Main.NumberBet = userInput.nextInt();
+				Main.NumberBet = Main.userInput.nextInt();
 				
 				if (Main.NumberBet < 0 || Main.NumberBet > 36) {
 					System.out.println("Invaid number, please try again!");
@@ -20,7 +19,7 @@ public class BetNumber {
 			}
 			catch (Exception e) {
 				System.out.println("Invaid number, please try again!");
-				userInput.next();
+				Main.userInput.next();
 			}
 		} while (Main.NumberBet < 0 || Main.NumberBet > 36);
 		
@@ -32,11 +31,13 @@ public class BetNumber {
 		
 // End Result		
 		if (Main.RoutletteNumber == Main.NumberBet) {
+			Main.Bank = Main.Bank + (Main.CurrentBet*36);
 			FinalResult.Winner();
 		}
 		else {
+			Main.Bank = Main.Bank - (Main.CurrentBet);
 			FinalResult.Loser();
 		}
-		userInput.close();
+
 	}
 }

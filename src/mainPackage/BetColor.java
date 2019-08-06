@@ -1,17 +1,16 @@
 package mainPackage;
-import java.util.*;
 
 public class BetColor {
 
 	public static void Color(){
-
-		Scanner userInput = new Scanner(System.in);
+		
+		FinalResult.PlaceBet();
 		
 		System.out.println("Pick your color. Red or Black.");
 		
 // User Input for color. loop for user error		
 		do {
-			Main.BetRoutletteColor = userInput.next() .toUpperCase();
+			Main.BetRoutletteColor = Main.userInput.next() .toUpperCase();
 			
 			if (!Main.BetRoutletteColor.equals("BLACK") && !Main.BetRoutletteColor.equals("RED")){
 				System.out.println("Invalid Entry, Please try again.");
@@ -41,13 +40,16 @@ public class BetColor {
 		
 		
 		if (Main.BetRoutletteColor.equals(Main.RoutletteColor)) {
+			Main.Bank = Main.Bank + (Main.CurrentBet);
 			FinalResult.Winner(); // Win
 		}
 		else {
+			Main.Bank = Main.Bank - (Main.CurrentBet);
 			FinalResult.Loser(); // Lose
+			
 		}
 	
-	userInput.close();
+
 	}
 	
 }
